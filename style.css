@@ -1,0 +1,130 @@
+button {
+    border-radius: 5vw;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1vw;
+    background-color: #d9d9d9;
+}
+
+.left {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2vw;
+    border-radius: 1.2vw;
+    width: 10%;
+    height: auto;
+    background-color: #f1f1f1;
+}
+
+.menu {
+    width: 30px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 20px;
+}
+
+.menu span {
+    height: 4px;
+    background: #333;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2vw;
+    border-radius: 1.2vw;
+    width: 65%;
+    height: auto;
+    background-color: #f1f1f1;
+}
+
+.right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2vw;
+    border-radius: 1.2vw;
+    width: 10%;
+    height: auto;
+    background-color: #f1f1f1;
+}
+
+.map {
+    cursor: pointer;
+}
+
+.map img{
+    height: auto;
+    width: 2vw;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+    margin: 1vw 0.2vw;
+}
+
+.search-bar {
+    display: flex;
+    margin: 0 1vw;
+    width: 90%;
+}
+
+.search-bar img {
+    height: auto;
+    width: 6vw;
+}
+
+.search input {
+    border-radius: 10vw;
+    width: 90%;
+}
+
+.filter{
+    margin: 0 1vw;
+}
+
+.resto {
+    display: flex;
+    margin: 1vw 0.2vw;
+    border-radius: 2vw;
+    background-color: #d9d9d9;
+}
+
+.resto img {
+    border-radius: 2vw;
+    width: 40%;
+    height: auto;
+}
+
+.resto-desc {
+    margin: 0.2vw 3vw;
+}
+
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #d9d9d9;
+}
+
+.contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0.3vw;
+    padding: 0.5vw;
+    border-radius: 0.6vw;
+    width: 99%;
+    background-color: #f1f1f1;
+}
