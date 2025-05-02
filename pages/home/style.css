@@ -135,6 +135,8 @@ footer {
 body {
     height: 100%;
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 .list {
@@ -142,61 +144,6 @@ body {
     overflow-y: auto;
 }
 
-/*resto.html*/
-
-body {
-    margin: 0;
-    padding: 0;
-}
-
-.top {
-    top: 0;
-    position:sticky;
-    z-index: -1;
-}
-
-.top img {
-    width: 100%;
-}
-
-.jam, .rating {
-    display: flex;
-    align-items:center;
-}
-
-.info {
-    background-color: white;
-    padding: 4vw;
-    border-top-left-radius: 32px;
-    border-top-right-radius: 32px;
-}
-
-.info > div:not(:last-child) {
-    margin-bottom: 0.5em;
-}
-
-.info .jam span, .info .rating span {
-    margin-left: 0.5em;
-}
-
-.info .jam {
-    font-size: 1.2em;
-}
-
-.info .nama {
-    font-size: 1.8em;
-    font-weight: bold;
-}
-
-.categories {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    overflow-x: auto;
-}
-
-.cat {
-    background-color: #d9d9d9;
-    padding: 0.8em;
-    border-radius: 32px;
+a {
+    text-decoration: none;
 }
