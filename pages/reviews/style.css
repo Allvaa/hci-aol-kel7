@@ -95,7 +95,7 @@ a {
     background-color: #d9d9d9;
     padding: 0.6em;
 }
-.review .user {
+.review .user, .addreview .user {
     gap: 0.5em;
     align-items:center;
     display: flex;
@@ -123,4 +123,74 @@ a {
     top: 0;
     position: fixed;
     z-index: -1;
+}
+
+.addreview {
+    /*top: -20vw;*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    height: 40vh;
+    width: 100vw;
+    background-color: white;
+    border-top-left-radius: 32px;
+    border-top-right-radius: 32px;
+}
+
+.setrating {
+    margin: 1.4em;
+    width: 80%;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+}
+
+.setrating img {
+    width: 11vw;
+}
+
+.addreview .user {
+    margin-bottom: 0.8em;
+    width: 90%;
+}
+
+.addreview .content {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8em;
+}
+
+textarea {
+    width: 100%;
+    height: 120px;
+    padding: 12px;
+    box-sizing: border-box;
+    border-radius: 15px;
+    background-color: #f8f8f8;
+    resize: none;
+}
+
+button {
+    padding: 10px 30px;
+    border-radius: 20px;
+    border: none;
+    background-color: lime;
+    color: white;
+}
+
+.hidden {
+    display: none;
+}
+
+.dim {
+    bottom: 0;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    opacity: 50%;
 }
