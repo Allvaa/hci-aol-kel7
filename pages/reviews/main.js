@@ -1,5 +1,5 @@
 document.querySelector(".backbutton").addEventListener("mouseup", () => {
-    location.pathname = "pages/details"
+    location.pathname = (location.pathname.startsWith("/hci-aol-kel7") ? "hci-aol-kel7/" : "" ) + "pages/details/index.html"
 });
 
 function toggleAddReview() {
