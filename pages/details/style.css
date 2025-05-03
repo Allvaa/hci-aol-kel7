@@ -23,16 +23,6 @@ body {
     height: auto;
 }
 
-.top {
-    top: 0;
-    position:sticky;
-    z-index: -1;
-}
-
-.top img {
-    width: 100%;
-}
-
 .jam, .rating {
     display: flex;
     align-items:center;
@@ -40,7 +30,7 @@ body {
 
 .info {
     /*top: -20vw;*/
-    margin-top: -19vw;
+    margin-top: 55vw;
     background-color: white;
     padding: 4vw;
     border-top-left-radius: 32px;
@@ -48,7 +38,7 @@ body {
 }
 
 .info > div:not(:last-child) {
-    margin-bottom: 0.5em;
+    margin-bottom: 0.7rem;
 }
 
 .info .jam span, .info .rating span {
@@ -60,7 +50,7 @@ body {
 }
 
 .info .nama {
-    font-size: 1.8em;
+    font-size: 1.7em;
     font-weight: bold;
 }
 
@@ -83,4 +73,23 @@ body {
 
 a {
     text-decoration: none;
+}
+
+.top .cover {
+    position:fixed;
+    top: 0;
+    z-index: -2;
+}
+
+.top img {
+    width: 100%;
+}
+
+.backbutton {
+    margin: 1em;
+    width: 24px;
+    height: 24px;
+    top: 0;
+    position: fixed;
+    z-index: -1;
 }

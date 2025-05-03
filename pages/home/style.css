@@ -1,4 +1,4 @@
-button {
+select {
     border-radius: 5vw;
 }
 
@@ -69,29 +69,35 @@ header {
 }
 
 .search {
+    justify-content: space-evenly;
     display: flex;
     align-items: center;
     margin: 1vw 0.2vw;
 }
 
 .search-bar {
+    gap: 0.2em;
     display: flex;
     margin: 0 1vw;
-    width: 90%;
+    width: 100%;
 }
 
 .search-bar img {
-    height: auto;
-    width: 6vw;
+    width: 8vw;
 }
 
 .search input {
+    padding: 0.5em 1em;
     border-radius: 10vw;
-    width: 90%;
+    width: 100%;
 }
 
 .filter{
     margin: 0 1vw;
+}
+
+.filter select {
+    padding: 0.5em 1em;
 }
 
 .resto, .item {

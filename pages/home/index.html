@@ -28,10 +28,14 @@
         <div class="search">
             <div class="search-bar">
                 <img src="../../Assets/Logo/search.png" alt="">
-                <input type="text" placeholder="  Nama Restoran"> 
+                <input type="text" placeholder="Nama Restoran"> 
             </div>
             <div class="filter">
-                <button>filter</button>
+                <select name="filter" id="filrer">
+                    <option value="rating">Rating</option>
+                    <option value="jarak">Jarak</option>
+                    <option value="ulasan">Ulasan</option>
+                </select>
             </div>
         </div>
         <div class="list">
@@ -120,5 +124,6 @@
             </div>
         </div>
     </footer>
+    <script src="./main.js"></script>
 </body>
 </html>
