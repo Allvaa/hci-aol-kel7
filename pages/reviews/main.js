@@ -108,12 +108,18 @@ document.querySelector("button").addEventListener("click", (e) => {
     e.preventDefault();
     const ulasan = document.querySelector("textarea").value;
     if (ulasan == "") return;
-    addReview(restoName, "User 1", 5, ulasan)
+    const resto = restoName;
+    const username = "User 1";
+    const rating = 5;
+    addReview(resto, username, rating, ulasan)
     toggleAddReview();
     document.querySelector("textarea").value = "";
     document.querySelector(".list").appendChild(createReview({
-        username: "User 1",
-        rating: 5,
+        username,
+        rating,
         ulasan
     }));
+    const totalRating = reviews[restoName].reduce((prev, curr) => prev + curr.rating, 0);
+    document.querySelector(".info .rating .rate").innerText = `${(totalRating / reviews[data.nama].length).toFixed(1)}`;
+    document.querySelector(".info .rating .ulasan").innerText = `${reviews[data.nama].length} ulasan`;
 })
