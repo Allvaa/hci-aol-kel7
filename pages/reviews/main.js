@@ -120,6 +120,6 @@ document.querySelector("button").addEventListener("click", (e) => {
         ulasan
     }));
     const totalRating = reviews[restoName].reduce((prev, curr) => prev + curr.rating, 0);
-    document.querySelector(".info .rating .rate").innerText = `${(totalRating / reviews[data.nama].length).toFixed(1)}`;
-    document.querySelector(".info .rating .ulasan").innerText = `${reviews[data.nama].length} ulasan`;
+    document.querySelector(".info .rating .rate").innerText = `${(totalRating / reviews[restoName].length).toFixed(1)}`;
+    document.querySelector(".info .rating .ulasan").innerText = `${reviews[restoName].length} ulasan`;
 })
