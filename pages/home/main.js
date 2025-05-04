@@ -39,21 +39,35 @@ function rate(resto) {
 
 let restoList = restoran;
 
-switch (document.querySelector(".filter select").value) {
-    case "rating":
-        restoList = restoList.sort((a, b) => rate(b) - rate(a));
-        break;
-    case "ulasan":
-        restoList = restoList.sort((a, b) => reviews[b.nama].length - reviews[a.nama].length);
-        break;
+function handleFilter() {
+    switch (document.querySelector(".filter select").value) {
+        case "rating":
+            restoList = restoList.sort((a, b) => rate(b) - rate(a));
+            break;
+        case "ulasan":
+            restoList = restoList.sort((a, b) => reviews[b.nama].length - reviews[a.nama].length);
+            break;
+    }
 }
 
-for (const resto of restoList) {
-    document.querySelector(".list").appendChild(createResto(resto));
+handleFilter();
+
+function createList() {
+    for (const resto of restoList) {
+        document.querySelector(".list").appendChild(createResto(resto));
+    }
+    
+    document.querySelectorAll(".resto").forEach(resto => {
+        resto.addEventListener("mouseup", () => {
+            location.href = "../details/index.html?id=" + resto.getAttribute("data-id");
+        });
+    })
 }
 
-document.querySelectorAll(".resto").forEach(resto => {
-    resto.addEventListener("mouseup", () => {
-        location.href = "../details/index.html?id=" + resto.getAttribute("data-id");
-    });
+document.querySelector(".filter select").addEventListener("change", (e) => {
+    handleFilter();
+    document.querySelector(".list").innerHTML = "";
+    createList();
 })
+
+createList();
