@@ -4,7 +4,7 @@ export const params = new URLSearchParams(location.search);
 
 let restoId;
 
-function createReview(data) {
+function createReview(data, rating) {
     const review = document.createElement("div");
     review.className = "review";
     
@@ -31,7 +31,7 @@ function createReview(data) {
     const sec2 = document.createElement("div");
     sec2.className = "sec2";
     
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < rating; i++) {
         const star = document.createElement("img");
         star.src = "../../Assets/Logo/star.png";
         star.width = 16;
@@ -79,7 +79,7 @@ if (params.has("id")) {
     document.querySelector(".info .rating .ulasan").innerText = `${reviews[data.id].length} ulasan`;
 
     for (const review of reviews[restoId]) {
-        document.querySelector(".list").appendChild(createReview(review));
+        document.querySelector(".list").appendChild(createReview(review, review.rating));
     }
 }
 
