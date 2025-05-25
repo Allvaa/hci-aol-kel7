@@ -2,7 +2,7 @@ import { addReview, restoran, reviews } from "../../data.js";
 
 export const params = new URLSearchParams(location.search);
 
-let restoName;
+let restoId;
 
 function createReview(data, rating) {
     const review = document.createElement("div");
@@ -70,14 +70,15 @@ function createReview(data, rating) {
 if (params.has("id")) {
     const data = restoran.find(resto => resto.id == params.get("id"));
     
-    restoName = document.querySelector(".info .nama span").innerText = data.nama;
+    restoId = data.id;
+    document.querySelector(".info .nama span").innerText = data.nama;
     document.querySelector(".info .alamat span").innerText = data.alamat;
     
-    const totalRating = reviews[data.nama].reduce((prev, curr) => prev + curr.rating, 0);
-    document.querySelector(".info .rating .rate").innerText = `${(totalRating / reviews[data.nama].length).toFixed(1)}`;
-    document.querySelector(".info .rating .ulasan").innerText = `${reviews[data.nama].length} ulasan`;
+    const totalRating = reviews[data.id].reduce((prev, curr) => prev + curr.rating, 0);
+    document.querySelector(".info .rating .rate").innerText = `${(totalRating / reviews[data.id].length).toFixed(1)}`;
+    document.querySelector(".info .rating .ulasan").innerText = `${reviews[data.id].length} ulasan`;
 
-    for (const review of reviews[restoName]) {
+    for (const review of reviews[restoId]) {
         document.querySelector(".list").appendChild(createReview(review, review.rating));
     }
 }
@@ -108,7 +109,7 @@ document.querySelector("button").addEventListener("click", (e) => {
     e.preventDefault();
     const ulasan = document.querySelector("textarea").value;
     if (ulasan == "") return;
-    const resto = restoName;
+    const resto = restoId;
     const username = "User 1";
     const rating = 5;
     addReview(resto, username, rating, ulasan)
@@ -119,7 +120,7 @@ document.querySelector("button").addEventListener("click", (e) => {
         rating,
         ulasan
     }));
-    const totalRating = reviews[restoName].reduce((prev, curr) => prev + curr.rating, 0);
-    document.querySelector(".info .rating .rate").innerText = `${(totalRating / reviews[restoName].length).toFixed(1)}`;
-    document.querySelector(".info .rating .ulasan").innerText = `${reviews[restoName].length} ulasan`;
+    const totalRating = reviews[restoId].reduce((prev, curr) => prev + curr.rating, 0);
+    document.querySelector(".info .rating .rate").innerText = `${(totalRating / reviews[restoId].length).toFixed(1)}`;
+    document.querySelector(".info .rating .ulasan").innerText = `${reviews[restoId].length} ulasan`;
 })

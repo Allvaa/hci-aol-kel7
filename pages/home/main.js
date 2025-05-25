@@ -19,9 +19,9 @@ function createResto(data) {
     const alamat = document.createElement("p");
     alamat.innerText = data.alamat;
 
-    const totalRating = reviews[data.nama].reduce((prev, curr) => prev + curr.rating, 0);
+    const totalRating = reviews[data.id].reduce((prev, curr) => prev + curr.rating, 0);
     const rating = document.createElement("p");
-    rating.innerText = `⭐ ${(totalRating / reviews[data.nama].length).toFixed(1)}`;
+    rating.innerText = `⭐ ${(totalRating / reviews[data.id].length).toFixed(1)}`;
 
     restoDesc.appendChild(nama);
     restoDesc.appendChild(alamat);
@@ -33,8 +33,9 @@ function createResto(data) {
 }
 
 function rate(resto) {
-    const totalRating = reviews[resto.nama].reduce((prev, curr) => prev + curr.rating, 0);
-    return (totalRating / reviews[resto.nama].length).toFixed(1);
+    console.log(resto);
+    const totalRating = reviews[resto.id].reduce((prev, curr) => prev + curr.rating, 0);
+    return (totalRating / reviews[resto.id].length).toFixed(1);
 }
 
 let restoList = restoran;
@@ -45,7 +46,7 @@ function handleFilter() {
             restoList = restoList.sort((a, b) => rate(b) - rate(a));
             break;
         case "ulasan":
-            restoList = restoList.sort((a, b) => reviews[b.nama].length - reviews[a.nama].length);
+            restoList = restoList.sort((a, b) => reviews[b.id].length - reviews[a.id].length);
             break;
     }
 }
