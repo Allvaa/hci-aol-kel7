@@ -9,8 +9,8 @@ if (params.has("id")) {
     document.querySelector(".info .jam span").innerText = data.jam_buka;
     document.querySelector(".info .nama span").innerText = data.nama;
 
-    const totalRating = reviews[data.nama].reduce((prev, curr) => prev + curr.rating, 0);
-    document.querySelector(".info .rating .rate").innerText = `${(totalRating / reviews[data.nama].length).toFixed(1)} (${reviews[data.nama].length})`;
+    const totalRating = reviews[data.id].reduce((prev, curr) => prev + curr.rating, 0);
+    document.querySelector(".info .rating .rate").innerText = `${(totalRating / reviews[data.id].length).toFixed(1)} (${reviews[data.id].length})`;
 
     function createCategory(data) {
         const category = document.createElement("div");
