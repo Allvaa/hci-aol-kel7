@@ -1,8 +1,15 @@
 // Tombol back sudah pakai inline onclick di HTML (history.back())
 
+import { addReview } from "../../data.js";
+
+const params = new URLSearchParams(location.search);
+const idStr = params.get("id");
+
 // Preview image upload
 const photoInput = document.getElementById('photo');
 const previewContainer = document.getElementById('preview-container');
+
+let photo;
 
 photoInput.addEventListener('change', () => {
   previewContainer.innerHTML = ''; // Bersihkan preview sebelumnya
@@ -20,9 +27,9 @@ photoInput.addEventListener('change', () => {
   previewContainer.appendChild(img);
 
   const reader = new FileReader();
-  reader.onload = (function(aImg) {
-    return function(e) {
-      aImg.src = e.target.result;
+  reader.onload = (function (aImg) {
+    return function (e) {
+      photo = aImg.src = e.target.result;
     };
   })(img);
 
@@ -32,8 +39,19 @@ photoInput.addEventListener('change', () => {
 // Contoh validasi sederhana sebelum submit (optional)
 const form = document.querySelector('.review-form');
 form.addEventListener('submit', (e) => {
+  e.preventDefault();
   if (!form.checkValidity()) {
-    e.preventDefault();
     alert('Tolong lengkapi semua kolom wajib!');
   }
+
+  const username = document.getElementById('name').value;
+  const email = document.getElementById('email').value;
+  const review = document.getElementById('review').value;
+  const rating = document.querySelector('input[name="rating"]:checked')?.value;
+
+  // Cetak ke console (atau bisa diolah sesuai kebutuhan)
+  addReview(idStr, username, rating, review, photo);
+  alert("Review ditambah");
+  history.back();
+  e.preventDefault();
 });

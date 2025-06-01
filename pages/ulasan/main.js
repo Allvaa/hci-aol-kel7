@@ -1,4 +1,4 @@
-import { reviewsData, restoran } from '../../data.js';
+import { reviews, restoran } from '../../data.js';
 
 // Ambil id restoran dari query string
 const params = new URLSearchParams(location.search);
@@ -12,7 +12,7 @@ if (restoData && restoNameElem) {
 }
 
 // Ambil data ulasan dari reviewsData
-const ulasan = (reviewsData && reviewsData[idStr]) ? reviewsData[idStr] : [];
+const ulasan = (reviews && reviews[idStr]) ? reviews[idStr] : [];
 
 // Render ke HTML
 const ulasanList = document.querySelector('.ulasan-list');
@@ -30,6 +30,7 @@ if (ulasan.length === 0) {
                 <span class="ulasan-rating">⭐ ${item.rating}</span>
             </div>
             <p class="ulasan-text">${item.ulasan}</p>
+            ${item.photo ? `<img src='${item.photo}' width=200>` : ""}
         `;
         ulasanList.appendChild(card);
     });

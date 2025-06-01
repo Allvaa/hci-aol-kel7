@@ -73,13 +73,15 @@ if (!reviews) {
     reviews = JSON.parse(reviews);
 }
 
-export function addReview(resto, user, rating, ulasan) {
+export function addReview(resto, user, rating, ulasan, photo) {
     reviews[resto].push({
         username: user,
         rating: rating,
-        ulasan: ulasan
+        ulasan: ulasan,
+        photo
     });
     localStorage.setItem("reviews", JSON.stringify(reviews));
+    reviews = localStorage.getItem("reviews");
 }
 
 export const restoranData = [
