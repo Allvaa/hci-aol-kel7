@@ -1,74 +1,87 @@
-import { restoran, reviews } from "../../data.js";
+import { restoran } from '../../data.js';
 
-function createResto(data) {
-    const resto = document.createElement("div");
-    resto.setAttribute("data-id", data.id);
-    resto.className = "resto";
+const listContainer = document.querySelector('.list');
+const searchInput = document.getElementById('searchInput');
+const filterSelect = document.getElementById('filterSelect');
+const searchBtn = document.getElementById('searchBtn');
 
-    const restoImg = document.createElement("img");
-    restoImg.src = "../../Assets/Restoran/kwetiau 79.jpg";
-    restoImg.alt = data.nama;
-    resto.appendChild(restoImg);
+// Generate daftar restoran
+function renderRestos(data) {
+  listContainer.innerHTML = '';
+  data.forEach(r => {
+    const restoDiv = document.createElement('div');
+    restoDiv.className = 'resto';
+    restoDiv.dataset.rating = r.rating;
+    restoDiv.dataset.jarak = r.jarak || 0;
+    restoDiv.dataset.ulasan = r.ulasan || 0;
+    restoDiv.dataset.harga = r.harga || 1;
+    restoDiv.dataset.halal = r.halal || false;
+    restoDiv.dataset.sehat = r.sehat || false;
 
-    const restoDesc = document.createElement("div");
-    restoDesc.className = "resto-desc";
-
-    const nama = document.createElement("p");
-    nama.innerText = data.nama;
-
-    const alamat = document.createElement("p");
-    alamat.innerText = data.alamat;
-
-    const totalRating = reviews[data.id].reduce((prev, curr) => prev + curr.rating, 0);
-    const rating = document.createElement("p");
-    rating.innerText = `⭐ ${(totalRating / reviews[data.id].length).toFixed(1)}`;
-
-    restoDesc.appendChild(nama);
-    restoDesc.appendChild(alamat);
-    restoDesc.appendChild(rating);
-
-    resto.appendChild(restoDesc);
-
-    return resto;
+    restoDiv.innerHTML = `
+      <a href="../details/index.html?id=${r.id}">
+        <img src="../../Assets/Restoran/${r.gambar}" alt="${r.nama}" />
+      </a>
+      <div class="resto-desc">
+        <p><b>${r.nama}</b></p>
+        <p>${r.alamat}</p>
+        <p>⭐ ${r.rating}</p>
+        <button class="write-review-btn">
+          <a href="../reviews/index.html?id=${r.id}">Tulis Review</a>
+        </button>
+      </div>
+    `;
+    listContainer.appendChild(restoDiv);
+  });
 }
 
-function rate(resto) {
-    console.log(resto);
-    const totalRating = reviews[resto.id].reduce((prev, curr) => prev + curr.rating, 0);
-    return (totalRating / reviews[resto.id].length).toFixed(1);
+// Filter & search
+function filterRestos() {
+  let filtered = [...restoran];
+
+  // Search by name
+  const searchVal = searchInput.value.toLowerCase();
+  if (searchVal) {
+    filtered = filtered.filter(r => r.nama.toLowerCase().includes(searchVal));
+  }
+
+  // Filter/sort
+  const filter = filterSelect.value;
+  switch (filter) {
+    case 'rating':
+      filtered.sort((a, b) => b.rating - a.rating);
+      break;
+    case 'jarak':
+      filtered.sort((a, b) => (a.jarak || 0) - (b.jarak || 0));
+      break;
+    case 'ulasan':
+      filtered.sort((a, b) => (b.ulasan || 0) - (a.ulasan || 0));
+      break;
+    case 'harga':
+      filtered.sort((a, b) => (a.harga || 1) - (b.harga || 1));
+      break;
+    case 'halal':
+      filtered = filtered.filter(r => r.halal);
+      break;
+    case 'sehat':
+      filtered = filtered.filter(r => r.sehat);
+      break;
+    case 'all':
+    default:
+      // Tidak filter apa-apa
+      break;
+  }
+
+  renderRestos(filtered);
 }
 
-let restoList = restoran;
+// Event listeners
+searchInput.addEventListener('input', filterRestos);
+filterSelect.addEventListener('change', filterRestos);
+searchBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+  filterRestos();
+});
 
-function handleFilter() {
-    switch (document.querySelector(".filter select").value) {
-        case "rating":
-            restoList = restoList.sort((a, b) => rate(b) - rate(a));
-            break;
-        case "ulasan":
-            restoList = restoList.sort((a, b) => reviews[b.id].length - reviews[a.id].length);
-            break;
-    }
-}
-
-handleFilter();
-
-function createList() {
-    for (const resto of restoList) {
-        document.querySelector(".list").appendChild(createResto(resto));
-    }
-    
-    document.querySelectorAll(".resto").forEach(resto => {
-        resto.addEventListener("mouseup", () => {
-            location.href = "../details/index.html?id=" + resto.getAttribute("data-id");
-        });
-    })
-}
-
-document.querySelector(".filter select").addEventListener("change", (e) => {
-    handleFilter();
-    document.querySelector(".list").innerHTML = "";
-    createList();
-})
-
-createList();
+// Render awal
+renderRestos(restoran);

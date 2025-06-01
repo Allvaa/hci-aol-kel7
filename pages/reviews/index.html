@@ -1,499 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Review Eats</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tulis Review - ReviewEats</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <main>
-        <div class="top">
-            <div class="cover">
-                <img src="../../Assets/Restoran/kwetiau 79.jpg" alt="Kwetiau 79">
-            </div>
-            <div class="backbutton">
-                <img src="../../Assets/Logo/arrow.png" alt="back">
-            </div>
+  <main>
+    <div class="review-container">
+      <button class="back-btn" onclick="history.back()">← Kembali</button>
+
+      <h1>Tulis Review untuk <span class="resto-name">Cumi Hitam Pak Kris</span></h1>
+      <p class="subtitle">Bagikan pengalamanmu dan bantu orang lain memilih tempat makan terbaik!</p>
+
+      <form class="review-form" action="#" method="post" enctype="multipart/form-data" novalidate>
+        <div class="form-group">
+          <label for="name">Nama <span class="required">*</span>:</label>
+          <input type="text" id="name" name="name" placeholder="Masukkan nama kamu" required />
         </div>
-        <div class="info">
-            <div class="nama">
-                <span>Cumi Hitam Pak Kris</span>
-            </div>
-            <div class="alamat">
-                <span>Jalan Alamat 123</span>
-            </div>
-            <div class="rating">
-                <div class="sec1">
-                    <span class="rate">4.5</span>
-                    <span class="ulasan">300 ulasan</span>
-                </div>
-                <div class="sec2">
-                    <img src="../../Assets/Logo/star.png"  width="32" alt="star">
-                    <img src="../../Assets/Logo/star.png"  width="32" alt="star">
-                    <img src="../../Assets/Logo/star.png"  width="32" alt="star">
-                    <img src="../../Assets/Logo/star.png"  width="32" alt="star">
-                    <img src="../../Assets/Logo/star.png"  width="32" alt="star">
-                </div>
-            </div>
-            <div>
-                <a href="#">Tambahkan ulasan</a>
-            </div>
-            <div>
-                <div class="semuaulasan"><span>Semua Ulasan</span></div>
-                <div class="list">
-                    <!--<div class="review">
-                        <div class="user">
-                            <div class="profilepic">
-                                <img src="../../Assets/Restoran/kwetiau 79.jpg" alt="Kwetiau 79">
-                            </div>
-                            <div>
-                                <span>User 1</span>
-                                <div class="details">
-                                    <div class="sec2">
-                                        <img src="../../Assets/Logo/star.png"  width="16" alt="star">
-                                        <img src="../../Assets/Logo/star.png"  width="16" alt="star">
-                                        <img src="../../Assets/Logo/star.png"  width="16" alt="star">
-                                        <img src="../../Assets/Logo/star.png"  width="16" alt="star">
-                                        <img src="../../Assets/Logo/star.png"  width="16" alt="star">
-                                    </div>
-                                    <div>
-                                        <span>30 December 2024</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="content">
-                            <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</span>
-                        </div>
-                    </div>
-                    <div class="review">
-                        <div class="user">
-                            <div class="profilepic">
-                                <img src="../../Assets/Restoran/kwetiau 79.jpg" alt="Kwetiau 79">
-                            </div>
-                            <div>
-                                <span>User 1</span>
-                                <div class="details">
-                                    <div class="sec2">
-                                        <img src="../../Assets/Logo/star.png"  width="16" alt="star">
-                                        <img src="../../Assets/Logo/star.png"  width="16" alt="star">
-                                        <img src="../../Assets/Logo/star.png"  width="16" alt="star">
-                                        <img src="../../Assets/Logo/star.png"  width="16" alt="star">
-                                        <img src="../../Assets/Logo/star.png"  width="16" alt="star">
-                                    </div>
-                                    <div>
-                                        <span>30 December 2024</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="content">
-                            <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</span>
-                        </div>
-                    </div>
-                    <div class="review">
-                        <div class="user">
-                            <div class="profilepic">
-                                <img src="../../Assets/Restoran/kwetiau 79.jpg" alt="Kwetiau 79">
-                            </div>
-                            <div>
-                                <span>User 1</span>
-                                <div class="details">
-                                    <div class="sec2">
-                                        <img src="../../Assets/Logo/star.png"  width="16" alt="star">
-                                        <img src="../../Assets/Logo/star.png"  width="16" alt="star">
-                                        <img src="../../Assets/Logo/star.png"  width="16" alt="star">
-                                        <img src="../../Assets/Logo/star.png"  width="16" alt="star">
-                                        <img src="../../Assets/Logo/star.png"  width="16" alt="star">
-                                    </div>
-                                    <div>
-                                        <span>30 December 2024</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="content">
-                            <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</span>
-                        </div>
-                    </div>
-                    <div class="review">
-                        <div class="user">
-                            <div class="profilepic">
-                                <img src="../../Assets/Restoran/kwetiau 79.jpg" alt="Kwetiau 79">
-                            </div>
-                            <div>
-                                <span>User 1</span>
-                                <div class="details">
-                                    <div class="sec2">
-                                        <img src="../../Assets/Logo/star.png"  width="16" alt="star">
-                                        <img src="../../Assets/Logo/star.png"  width="16" alt="star">
-                                        <img src="../../Assets/Logo/star.png"  width="16" alt="star">
-                                        <img src="../../Assets/Logo/star.png"  width="16" alt="star">
-                                        <img src="../../Assets/Logo/star.png"  width="16" alt="star">
-                                    </div>
-                                    <div>
-                                        <span>30 December 2024</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="content">
-                            <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</span>
-                        </div>
-                    </div>
-                    <div class="review">
-                        <div class="user">
-                            <div class="profilepic">
-                                <img src="../../Assets/Restoran/kwetiau 79.jpg" alt="Kwetiau 79">
-                            </div>
-                            <div>
-                                <span>User 1</span>
-                                <div class="details">
-                                    <div class="sec2">
-                                        <img src="../../Assets/Logo/star.png"  width="16" alt="star">
-                                        <img src="../../Assets/Logo/star.png"  width="16" alt="star">
-                                        <img src="../../Assets/Logo/star.png"  width="16" alt="star">
-                                        <img src="../../Assets/Logo/star.png"  width="16" alt="star">
-                                        <img src="../../Assets/Logo/star.png"  width="16" alt="star">
-                                    </div>
-                                    <div>
-                                        <span>30 December 2024</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="content">
-                            <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</span>
-                        </div>
-                    </div>
-                    <div class="review">
-                        <div class="user">
-                            <div class="profilepic">
-                                <img src="../../Assets/Restoran/kwetiau 79.jpg" alt="Kwetiau 79">
-                            </div>
-                            <div>
-                                <span>User 1</span>
-                                <div class="details">
-                                    <div class="sec2">
-                                        <img src="../../Assets/Logo/star.png"  width="16" alt="star">
-                                        <img src="../../Assets/Logo/star.png"  width="16" alt="star">
-                                        <img src="../../Assets/Logo/star.png"  width="16" alt="star">
-                                        <img src="../../Assets/Logo/star.png"  width="16" alt="star">
-                                        <img src="../../Assets/Logo/star.png"  width="16" alt="star">
-                                    </div>
-                                    <div>
-                                        <span>30 December 2024</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="content">
-                            <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</span>
-                        </div>
-                    </div>
-                    <div class="review">
-                        <div class="user">
-                            <div class="profilepic">
-                                <img src="../../Assets/Restoran/kwetiau 79.jpg" alt="Kwetiau 79">
-                            </div>
-                            <div>
-                                <span>User 1</span>
-                                <div class="details">
-                                    <div class="sec2">
-                                        <img src="../../Assets/Logo/star.png"  width="16" alt="star">
-                                        <img src="../../Assets/Logo/star.png"  width="16" alt="star">
-                                        <img src="../../Assets/Logo/star.png"  width="16" alt="star">
-                                        <img src="../../Assets/Logo/star.png"  width="16" alt="star">
-                                        <img src="../../Assets/Logo/star.png"  width="16" alt="star">
-                                    </div>
-                                    <div>
-                                        <span>30 December 2024</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="content">
-                            <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</span>
-                        </div>
-                    </div>
-                    <div class="review">
-                        <div class="user">
-                            <div class="profilepic">
-                                <img src="../../Assets/Restoran/kwetiau 79.jpg" alt="Kwetiau 79">
-                            </div>
-                            <div>
-                                <span>User 1</span>
-                                <div class="details">
-                                    <div class="sec2">
-                                        <img src="../../Assets/Logo/star.png"  width="16" alt="star">
-                                        <img src="../../Assets/Logo/star.png"  width="16" alt="star">
-                                        <img src="../../Assets/Logo/star.png"  width="16" alt="star">
-                                        <img src="../../Assets/Logo/star.png"  width="16" alt="star">
-                                        <img src="../../Assets/Logo/star.png"  width="16" alt="star">
-                                    </div>
-                                    <div>
-                                        <span>30 December 2024</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="content">
-                            <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</span>
-                        </div>
-                    </div>
-                    <div class="review">
-                        <div class="user">
-                            <div class="profilepic">
-                                <img src="../../Assets/Restoran/kwetiau 79.jpg" alt="Kwetiau 79">
-                            </div>
-                            <div>
-                                <span>User 1</span>
-                                <div class="details">
-                                    <div class="sec2">
-                                        <img src="../../Assets/Logo/star.png"  width="16" alt="star">
-                                        <img src="../../Assets/Logo/star.png"  width="16" alt="star">
-                                        <img src="../../Assets/Logo/star.png"  width="16" alt="star">
-                                        <img src="../../Assets/Logo/star.png"  width="16" alt="star">
-                                        <img src="../../Assets/Logo/star.png"  width="16" alt="star">
-                                    </div>
-                                    <div>
-                                        <span>30 December 2024</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="content">
-                            <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</span>
-                        </div>
-                    </div>
-                    <div class="review">
-                        <div class="user">
-                            <div class="profilepic">
-                                <img src="../../Assets/Restoran/kwetiau 79.jpg" alt="Kwetiau 79">
-                            </div>
-                            <div>
-                                <span>User 1</span>
-                                <div class="details">
-                                    <div class="sec2">
-                                        <img src="../../Assets/Logo/star.png"  width="16" alt="star">
-                                        <img src="../../Assets/Logo/star.png"  width="16" alt="star">
-                                        <img src="../../Assets/Logo/star.png"  width="16" alt="star">
-                                        <img src="../../Assets/Logo/star.png"  width="16" alt="star">
-                                        <img src="../../Assets/Logo/star.png"  width="16" alt="star">
-                                    </div>
-                                    <div>
-                                        <span>30 December 2024</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="content">
-                            <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</span>
-                        </div>
-                    </div>
-                    <div class="review">
-                        <div class="user">
-                            <div class="profilepic">
-                                <img src="../../Assets/Restoran/kwetiau 79.jpg" alt="Kwetiau 79">
-                            </div>
-                            <div>
-                                <span>User 1</span>
-                                <div class="details">
-                                    <div class="sec2">
-                                        <img src="../../Assets/Logo/star.png"  width="16" alt="star">
-                                        <img src="../../Assets/Logo/star.png"  width="16" alt="star">
-                                        <img src="../../Assets/Logo/star.png"  width="16" alt="star">
-                                        <img src="../../Assets/Logo/star.png"  width="16" alt="star">
-                                        <img src="../../Assets/Logo/star.png"  width="16" alt="star">
-                                    </div>
-                                    <div>
-                                        <span>30 December 2024</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="content">
-                            <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</span>
-                        </div>
-                    </div>
-                    <div class="review">
-                        <div class="user">
-                            <div class="profilepic">
-                                <img src="../../Assets/Restoran/kwetiau 79.jpg" alt="Kwetiau 79">
-                            </div>
-                            <div>
-                                <span>User 1</span>
-                                <div class="details">
-                                    <div class="sec2">
-                                        <img src="../../Assets/Logo/star.png"  width="16" alt="star">
-                                        <img src="../../Assets/Logo/star.png"  width="16" alt="star">
-                                        <img src="../../Assets/Logo/star.png"  width="16" alt="star">
-                                        <img src="../../Assets/Logo/star.png"  width="16" alt="star">
-                                        <img src="../../Assets/Logo/star.png"  width="16" alt="star">
-                                    </div>
-                                    <div>
-                                        <span>30 December 2024</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="content">
-                            <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</span>
-                        </div>
-                    </div>
-                    <div class="review">
-                        <div class="user">
-                            <div class="profilepic">
-                                <img src="../../Assets/Restoran/kwetiau 79.jpg" alt="Kwetiau 79">
-                            </div>
-                            <div>
-                                <span>User 1</span>
-                                <div class="details">
-                                    <div class="sec2">
-                                        <img src="../../Assets/Logo/star.png"  width="16" alt="star">
-                                        <img src="../../Assets/Logo/star.png"  width="16" alt="star">
-                                        <img src="../../Assets/Logo/star.png"  width="16" alt="star">
-                                        <img src="../../Assets/Logo/star.png"  width="16" alt="star">
-                                        <img src="../../Assets/Logo/star.png"  width="16" alt="star">
-                                    </div>
-                                    <div>
-                                        <span>30 December 2024</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="content">
-                            <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</span>
-                        </div>
-                    </div>
-                    <div class="review">
-                        <div class="user">
-                            <div class="profilepic">
-                                <img src="../../Assets/Restoran/kwetiau 79.jpg" alt="Kwetiau 79">
-                            </div>
-                            <div>
-                                <span>User 1</span>
-                                <div class="details">
-                                    <div class="sec2">
-                                        <img src="../../Assets/Logo/star.png"  width="16" alt="star">
-                                        <img src="../../Assets/Logo/star.png"  width="16" alt="star">
-                                        <img src="../../Assets/Logo/star.png"  width="16" alt="star">
-                                        <img src="../../Assets/Logo/star.png"  width="16" alt="star">
-                                        <img src="../../Assets/Logo/star.png"  width="16" alt="star">
-                                    </div>
-                                    <div>
-                                        <span>30 December 2024</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="content">
-                            <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</span>
-                        </div>
-                    </div>
-                    <div class="review">
-                        <div class="user">
-                            <div class="profilepic">
-                                <img src="../../Assets/Restoran/kwetiau 79.jpg" alt="Kwetiau 79">
-                            </div>
-                            <div>
-                                <span>User 1</span>
-                                <div class="details">
-                                    <div class="sec2">
-                                        <img src="../../Assets/Logo/star.png"  width="16" alt="star">
-                                        <img src="../../Assets/Logo/star.png"  width="16" alt="star">
-                                        <img src="../../Assets/Logo/star.png"  width="16" alt="star">
-                                        <img src="../../Assets/Logo/star.png"  width="16" alt="star">
-                                        <img src="../../Assets/Logo/star.png"  width="16" alt="star">
-                                    </div>
-                                    <div>
-                                        <span>30 December 2024</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="content">
-                            <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</span>
-                        </div>
-                    </div>
-                    <div class="review">
-                        <div class="user">
-                            <div class="profilepic">
-                                <img src="../../Assets/Restoran/kwetiau 79.jpg" alt="Kwetiau 79">
-                            </div>
-                            <div>
-                                <span>User 1</span>
-                                <div class="details">
-                                    <div class="sec2">
-                                        <img src="../../Assets/Logo/star.png"  width="16" alt="star">
-                                        <img src="../../Assets/Logo/star.png"  width="16" alt="star">
-                                        <img src="../../Assets/Logo/star.png"  width="16" alt="star">
-                                        <img src="../../Assets/Logo/star.png"  width="16" alt="star">
-                                        <img src="../../Assets/Logo/star.png"  width="16" alt="star">
-                                    </div>
-                                    <div>
-                                        <span>30 December 2024</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="content">
-                            <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</span>
-                        </div>
-                    </div>
-                    <div class="review">
-                        <div class="user">
-                            <div class="profilepic">
-                                <img src="../../Assets/Restoran/kwetiau 79.jpg" alt="Kwetiau 79">
-                            </div>
-                            <div>
-                                <span>User 1</span>
-                                <div class="details">
-                                    <div class="sec2">
-                                        <img src="../../Assets/Logo/star.png"  width="16" alt="star">
-                                        <img src="../../Assets/Logo/star.png"  width="16" alt="star">
-                                        <img src="../../Assets/Logo/star.png"  width="16" alt="star">
-                                        <img src="../../Assets/Logo/star.png"  width="16" alt="star">
-                                        <img src="../../Assets/Logo/star.png"  width="16" alt="star">
-                                    </div>
-                                    <div>
-                                        <span>30 December 2024</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="content">
-                            <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</span>
-                        </div>
-                    </div>-->
-                </div>
-            </div>
+
+        <div class="form-group">
+          <label for="email">Email (opsional):</label>
+          <input type="email" id="email" name="email" placeholder="Masukkan email kamu" />
         </div>
-        <div class="dim hidden">
+
+        <div class="form-group">
+          <label>Rating <span class="required">*</span>:</label>
+          <div class="stars">
+            <input type="radio" name="rating" value="5" id="star5" required />
+            <label for="star5" title="Sangat Baik">★</label>
+
+            <input type="radio" name="rating" value="4" id="star4" />
+            <label for="star4" title="Baik">★</label>
+
+            <input type="radio" name="rating" value="3" id="star3" />
+            <label for="star3" title="Cukup">★</label>
+
+            <input type="radio" name="rating" value="2" id="star2" />
+            <label for="star2" title="Kurang">★</label>
+
+            <input type="radio" name="rating" value="1" id="star1" />
+            <label for="star1" title="Sangat Kurang">★</label>
+          </div>
         </div>
-        <div class="addreview hidden">
-            <div class="setrating">
-                <img src="../../Assets/Logo/star.png"  width="16" alt="star">
-                <img src="../../Assets/Logo/star.png"  width="16" alt="star">
-                <img src="../../Assets/Logo/star.png"  width="16" alt="star">
-                <img src="../../Assets/Logo/star.png"  width="16" alt="star">
-                <img src="../../Assets/Logo/star.png"  width="16" alt="star">
-            </div>
-            <div class="user">
-                <div class="profilepic">
-                    <img src="../../Assets/Restoran/kwetiau 79.jpg" alt="Kwetiau 79">
-                </div>
-                <div>
-                    <span>User 1</span>
-                </div>
-            </div>
-            <div class="content">
-                <textarea id="newreview" name="newreview"></textarea>
-                <button>SUBMIT</button>
-            </div>
+
+        <div class="form-group">
+          <label for="review">Ulasan <span class="required">*</span>:</label>
+          <textarea
+            id="review"
+            name="review"
+            rows="6"
+            placeholder="Ceritakan pengalamanmu dengan restoran ini..."
+            required
+          ></textarea>
         </div>
-    </main>
-    <script type="module" src="./main.js"></script>
+
+        <div class="form-group">
+          <label for="photo">Upload Foto Makanan (opsional):</label>
+          <input type="file" id="photo" name="photo" accept="image/*" />
+          <div id="preview-container" class="preview-container"></div>
+        </div>
+
+        <div class="form-group">
+          <button type="submit" class="submit-btn">Kirim Review</button>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <script type="module" src="main.js"></script>
 </body>
 </html>
