@@ -84,7 +84,7 @@ export function addReview(resto, user, rating, ulasan, photo) {
     reviews = localStorage.getItem("reviews");
 }
 
-export const restoranData = [
+const restoranData = [
     {
         id: 0,
         nama: "Kwetiau 79",

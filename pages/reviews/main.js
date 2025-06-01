@@ -1,9 +1,16 @@
 // Tombol back sudah pakai inline onclick di HTML (history.back())
 
-import { addReview } from "../../data.js";
+import { addReview, restoran } from "../../data.js";
 
 const params = new URLSearchParams(location.search);
 const idStr = params.get("id");
+
+// Cek data restoran
+const restoData = restoran.find(r => String(r.id) === idStr);
+const restoNameElem = document.querySelector('.resto-name');
+if (restoData && restoNameElem) {
+    restoNameElem.innerText = restoData.nama;
+}
 
 // Preview image upload
 const photoInput = document.getElementById('photo');
@@ -39,6 +46,10 @@ photoInput.addEventListener('change', () => {
 // Contoh validasi sederhana sebelum submit (optional)
 const form = document.querySelector('.review-form');
 form.addEventListener('submit', (e) => {
+  if (!restoData) {
+    e.preventDefault();
+    return;
+  }
   if (!form.checkValidity()) {
     alert('Tolong lengkapi semua kolom wajib!');
     e.preventDefault();
