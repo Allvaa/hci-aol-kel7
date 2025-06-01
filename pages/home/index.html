@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Review Eats</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ReviewEats</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
     <header>
         <div class="left">
-            <div class="menu" onclick="">
+            <div class="menu" onclick="alert('Menu navigation coming soon!')">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -19,111 +19,59 @@
             <div>ReviewEats</div>
         </div>
         <div class="right">
-            <div class="map" onclick="">
-                <img src="../../Assets/Logo/map.png" alt="map">
+            <div
+                class="map"
+                onclick="window.open('https://www.google.com/maps/search/restoran+dekat+Binus+University', '_blank')"
+            >
+                <img src="../../Assets/Logo/map.png" alt="map" />
             </div>
         </div>
     </header>
+
     <main>
         <div class="search">
             <div class="search-bar">
-                <img src="../../Assets/Logo/search.png" alt="">
-                <input type="text" placeholder="Nama Restoran"> 
+                <img src="../../Assets/Logo/search.png" alt="search" />
+                <input id="searchInput" type="text" placeholder="Nama Restoran" />
+                <button id="searchBtn" type="button" class="search-btn">Cari</button>
             </div>
             <div class="filter">
-                <select name="filter" id="filrer">
+                <select name="filter" id="filterSelect">
+                    <option value="all">Filter</option>
                     <option value="rating">Rating</option>
                     <option value="jarak">Jarak</option>
                     <option value="ulasan">Ulasan</option>
+                    <option value="harga">Harga</option>
+                    <option value="halal">Halal</option>
+                    <option value="sehat">Sehat</option>
                 </select>
             </div>
         </div>
+        
+
         <div class="list">
-            <!--<div class="resto">
-                <img src="../../Assets/Restoran/kwetiau 79.jpg" alt="Kwetiau 79">
-                <div class="resto-desc">
-                    <p>nama resto</p>
-                    <p>jalan bapakmu</p>
-                    <p>⭐ 4.5</p>
-                </div>
-            </div>
-            <div class="resto">
-                <img src="../../Assets/Restoran/kwetiau 79.jpg" alt="Kwetiau 79">
-                <div class="resto-desc">
-                    <p>nama resto</p>
-                    <p>jalan bapakmu</p>
-                    <p>⭐ 4.5</p>
-                </div>
-            </div>
-            <div class="resto">
-                <img src="../../Assets/Restoran/kwetiau 79.jpg" alt="Kwetiau 79">
-                <div class="resto-desc">
-                    <p>nama resto</p>
-                    <p>jalan bapakmu</p>
-                    <p>⭐ 4.5</p>
-                </div>
-            </div>
-            <div class="resto">
-                <img src="../../Assets/Restoran/kwetiau 79.jpg" alt="Kwetiau 79">
-                <div class="resto-desc">
-                    <p>nama resto</p>
-                    <p>jalan bapakmu</p>
-                    <p>⭐ 4.5</p>
-                </div>
-            </div>
-            <div class="resto">
-                <img src="../../Assets/Restoran/kwetiau 79.jpg" alt="Kwetiau 79">
-                <div class="resto-desc">
-                    <p>nama resto</p>
-                    <p>jalan bapakmu</p>
-                    <p>⭐ 4.5</p>
-                </div>
-            </div>
-            <div class="resto">
-                <img src="../../Assets/Restoran/kwetiau 79.jpg" alt="Kwetiau 79">
-                <div class="resto-desc">
-                    <p>nama resto</p>
-                    <p>jalan bapakmu</p>
-                    <p>⭐ 4.5</p>
-                </div>
-            </div>
-            <div class="resto">
-                <img src="../../Assets/Restoran/kwetiau 79.jpg" alt="Kwetiau 79">
-                <div class="resto-desc">
-                    <p>nama resto</p>
-                    <p>jalan bapakmu</p>
-                    <p>⭐ 4.5</p>
-                </div>
-            </div>
-            <div class="resto">
-                <img src="../../Assets/Restoran/kwetiau 79.jpg" alt="Kwetiau 79">
-                <div class="resto-desc">
-                    <p>nama resto</p>
-                    <p>jalan bapakmu</p>
-                    <p>⭐ 4.5</p>
-                </div>
-            </div>
-            <div class="resto">
-                <img src="../../Assets/Restoran/kwetiau 79.jpg" alt="Kwetiau 79">
-                <div class="resto-desc">
-                    <p>nama resto</p>
-                    <p>jalan bapakmu</p>
-                    <p>⭐ 4.5</p>
-                </div>
-            </div>-->
+            <!-- Daftar restoran akan diisi otomatis oleh main.js -->
         </div>
     </main>
+
     <footer>
         <div class="contact">
             <div>ReviewEats</div>
             <div>
-                <button>twitter</button>
-                <button>facebook</button>
-                <button>instagram</button>
-                <button>call</button>
+                <a href="https://twitter.com" target="_blank"
+                    ><button>Twitter</button></a
+                >
+                <a href="https://facebook.com" target="_blank"
+                    ><button>Facebook</button></a
+                >
+                <a href="https://instagram.com" target="_blank"
+                    ><button>Instagram</button></a
+                >
+                <a href="tel:123456789"><button>Call</button></a>
             </div>
         </div>
     </footer>
+
     <script type="module" src="./main.js"></script>
 </body>
 </html>
