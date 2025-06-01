@@ -39,9 +39,10 @@ photoInput.addEventListener('change', () => {
 // Contoh validasi sederhana sebelum submit (optional)
 const form = document.querySelector('.review-form');
 form.addEventListener('submit', (e) => {
-  e.preventDefault();
   if (!form.checkValidity()) {
     alert('Tolong lengkapi semua kolom wajib!');
+    e.preventDefault();
+    return;
   }
 
   const username = document.getElementById('name').value;
