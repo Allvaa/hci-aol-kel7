@@ -75,6 +75,11 @@ function filterRestos() {
       break;
   }
 
+  if (filtered.length == 0) {
+    listContainer.innerHTML = `Tidak ada restoran dengan nama '${encodeURIComponent(searchVal)}'`;
+    return;
+  }
+
   renderRestos(filtered);
 }
 
