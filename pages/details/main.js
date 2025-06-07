@@ -53,7 +53,7 @@ if (params.has("id")) {
 
 // Tombol kembali
 document.querySelector(".backbutton").addEventListener("mouseup", () => {
-    location.href = "../home/index.html";
+    history.back();
 });
 
 // Tombol lihat ulasan

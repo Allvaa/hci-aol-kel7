@@ -164,9 +164,11 @@ header {
 /* Resto List */
 .list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 20px;
     padding: 20px;
+    margin-inline: auto;        /* Center the whole grid horizontally */
+    box-sizing: border-box;
 }
 
 .resto {
@@ -177,15 +179,8 @@ header {
     transition: transform 0.2s ease-in-out;
     display: flex;
     flex-direction: column;
-    width: 100%;
-    min-width: 0;
-}
-
-.resto-desc {
-    padding: 15px;
-    display: flex;
-    flex-direction: column;
-    flex: 1;
+    min-width: 0;               /* Prevent overflow in some cases */
+    justify-self: center;       /* Center the item horizontally inside grid cell */
 }
 
 .resto a img {

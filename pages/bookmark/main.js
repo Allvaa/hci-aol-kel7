@@ -27,7 +27,7 @@ if (bookmarkedRestos.length === 0) {
           <button class="write-review-btn">
             <a href="../reviews/index.html?id=${r.id}">Tulis Review</a>
           </button>
-          <button class="bookmark-btn" data-id="${r.id}"><img class="bookmark-btn-icon" src="../../Assets/Icons/${isBookmarked(r.id) ? "bookmarked" : "bookmark"}.svg"></button>
+          <button class="bookmark-btn" data-id="${r.id}"><img class="bookmark-btn-icon" src="../../Assets/Icons/${isBookmarked(r.id) ? "favorited" : "favorite"}.svg"></button>
         </div>
       </div>
     `;

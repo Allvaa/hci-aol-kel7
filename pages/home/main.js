@@ -30,7 +30,7 @@ function renderRestos(data) {
           <button class="write-review-btn">
             <a href="../reviews/index.html?id=${r.id}">Tulis Review</a>
           </button>
-          <button class="bookmark-btn" data-id="${r.id}"><img class="bookmark-btn-icon" src="../../Assets/Icons/${isBookmarked(r.id) ? "bookmarked" : "bookmark"}.svg"></button>
+          <button class="bookmark-btn" data-id="${r.id}"><img class="bookmark-btn-icon" src="../../Assets/Icons/${isBookmarked(r.id) ? "favorited" : "favorite"}.svg"></button>
         </div>
       </div>
     `;
@@ -79,7 +79,9 @@ function filterRestos() {
 }
 
 // Event listeners
-searchInput.addEventListener('input', filterRestos);
+searchInput.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') filterRestos();
+});
 filterSelect.addEventListener('change', filterRestos);
 searchBtn.addEventListener('click', (e) => {
   e.preventDefault();
@@ -95,13 +97,13 @@ document.addEventListener('click', function (e) {
     const id = btn.dataset.id;
 
     const icon = document.querySelector(`.bookmark-btn[data-id="${id}"] img`);
-    icon.src = `../../Assets/Icons/${toggleBookmark(id) ? "bookmarked" : "bookmark"}.svg`;
+    icon.src = `../../Assets/Icons/${toggleBookmark(id) ? "favorited" : "favorite"}.svg`;
   }
   if (e.target.classList.contains('bookmark-btn-icon')) {
     const icon = e.target;
     const btn = e.target.parentElement
     const id = btn.dataset.id;
 
-    icon.src = `../../Assets/Icons/${toggleBookmark(id) ? "bookmarked" : "bookmark"}.svg`;
+    icon.src = `../../Assets/Icons/${toggleBookmark(id) ? "favorited" : "favorite"}.svg`;
   }
 });
