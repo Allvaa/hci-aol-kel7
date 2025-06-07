@@ -1,4 +1,4 @@
-import { restoran } from '../../data.js';
+import { isBookmarked, restoran, toggleBookmark } from '../../data.js';
 
 const listContainer = document.querySelector('.list');
 const searchInput = document.getElementById('searchInput');
@@ -26,9 +26,12 @@ function renderRestos(data) {
         <p><b>${r.nama}</b></p>
         <p>${r.alamat}</p>
         <p>⭐ ${r.rating}</p>
-        <button class="write-review-btn">
-          <a href="../reviews/index.html?id=${r.id}">Tulis Review</a>
-        </button>
+        <div class="resto-actions">
+          <button class="write-review-btn">
+            <a href="../reviews/index.html?id=${r.id}">Tulis Review</a>
+          </button>
+          <button class="bookmark-btn" data-id="${r.id}"><img class="bookmark-btn-icon" src="../../Assets/Icons/${isBookmarked(r.id) ? "bookmarked" : "bookmark"}.svg"></button>
+        </div>
       </div>
     `;
     listContainer.appendChild(restoDiv);
@@ -85,3 +88,20 @@ searchBtn.addEventListener('click', (e) => {
 
 // Render awal
 renderRestos(restoran);
+
+document.addEventListener('click', function (e) {
+  if (e.target.classList.contains('bookmark-btn')) {
+    const btn = e.target;
+    const id = btn.dataset.id;
+
+    const icon = document.querySelector(`.bookmark-btn[data-id="${id}"] img`);
+    icon.src = `../../Assets/Icons/${toggleBookmark(id) ? "bookmarked" : "bookmark"}.svg`;
+  }
+  if (e.target.classList.contains('bookmark-btn-icon')) {
+    const icon = e.target;
+    const btn = e.target.parentElement
+    const id = btn.dataset.id;
+
+    icon.src = `../../Assets/Icons/${toggleBookmark(id) ? "bookmarked" : "bookmark"}.svg`;
+  }
+});

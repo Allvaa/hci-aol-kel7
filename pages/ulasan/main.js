@@ -30,7 +30,7 @@ if (ulasan.length === 0) {
                 <span class="ulasan-rating">⭐ ${item.rating}</span>
             </div>
             <p class="ulasan-text">${item.ulasan}</p>
-            ${item.photo ? `<img src='${item.photo}' width=200>` : ""}
+            ${item.photo ? `<img src='${item.photo}' width="200">` : ""}
         `;
         ulasanList.appendChild(card);
     });

@@ -73,15 +73,14 @@ if (!reviews) {
     reviews = JSON.parse(reviews);
 }
 
-export function addReview(resto, user, rating, ulasan, photo) {
-    reviews[resto].push({
+export function addReview(restoId, user, rating, ulasan, photo) {
+    reviews[restoId].push({
         username: user,
         rating: rating,
         ulasan: ulasan,
         photo
     });
     localStorage.setItem("reviews", JSON.stringify(reviews));
-    reviews = localStorage.getItem("reviews");
 }
 
 const restoranData = [
@@ -169,3 +168,24 @@ const restoranData = [
 ];
 
 export let restoran = restoranData;
+
+export function getBookmarks() {
+    return JSON.parse(localStorage.getItem('bookmarks')) || [];
+}
+
+export function isBookmarked(restoId) {
+    return getBookmarks().includes(restoId.toString());
+}
+
+export function toggleBookmark(restoId) {
+    let bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || [];
+    if (bookmarks.includes(restoId)) {
+      bookmarks = bookmarks.filter(bookmarkId => bookmarkId !== restoId);
+      localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+      return false;
+    } else {
+      bookmarks.push(restoId);
+      localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+      return true;
+    }
+}
