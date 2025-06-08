@@ -21,7 +21,7 @@ function renderRestos(data) {
     restoDiv.innerHTML = `
       <a href="../details/index.html?id=${r.id}">
         <img src="../../Assets/Restoran/${r.gambar}" alt="${r.nama}" />
-        <div class="mark">50% OFF</div>
+        ${r.promo ? `<div class="mark">${r.promo}</div>` : ""}
       </a>
       <div class="resto-desc">
         <p><b>${r.nama}</b></p>
@@ -51,30 +51,18 @@ function filterRestos() {
 
   // Filter/sort
   const filter = filterSelect.value;
-  switch (filter) {
-    case 'rating':
-      filtered.sort((a, b) => b.rating - a.rating);
-      break;
-    case 'jarak':
-      filtered.sort((a, b) => (a.jarak || 0) - (b.jarak || 0));
-      break;
-    case 'ulasan':
-      filtered.sort((a, b) => (b.ulasan || 0) - (a.ulasan || 0));
-      break;
-    case 'harga':
-      filtered.sort((a, b) => (a.harga || 1) - (b.harga || 1));
-      break;
-    case 'halal':
-      filtered = filtered.filter(r => r.halal);
-      break;
-    case 'sehat':
-      filtered = filtered.filter(r => r.sehat);
-      break;
-    case 'all':
-    default:
-      // Tidak filter apa-apa
-      break;
-  }
+    switch (filter) {
+      case 'rating':
+        filtered.sort((a, b) => b.rating - a.rating);
+        break;
+      case 'promo':
+        filtered = filtered.filter(r => r.promo); 
+        break;
+      case 'all':
+      default:
+        // Tidak filter apa-apa
+        break;
+    }
 
   if (filtered.length == 0) {
     listContainer.textContent = `Tidak ada restoran dengan nama '${searchVal}'`;

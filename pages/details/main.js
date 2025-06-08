@@ -22,18 +22,7 @@ if (params.has("id")) {
     document.querySelector(".info .jam span").innerText = data.jam_buka;
 
     // Rating & jumlah ulasan
-    let restoReviews = [];
-    if (reviews && typeof reviews === "object" && reviews[idStr] && Array.isArray(reviews[idStr])) {
-        restoReviews = reviews[idStr];
-    }
-    let avgRating = data.rating;
-    let reviewCount = 0;
-    if (restoReviews.length > 0) {
-        const totalRating = restoReviews.reduce((prev, curr) => prev + Number(curr.rating || 0), 0);
-        avgRating = (totalRating / restoReviews.length).toFixed(1);
-        reviewCount = restoReviews.length;
-    }
-    document.querySelector(".info .rating .rate").innerText = `${avgRating}`;
+    document.querySelector(".info .rating .rate").innerText = `${data.rating}`;
 
     // Alamat
     document.querySelector(".info .alamat").innerText = data.alamat;
@@ -48,6 +37,17 @@ if (params.has("id")) {
             category.innerText = cat;
             categoriesContainer.appendChild(category);
         });
+    }
+
+    // Promo info tampil hanya jika ada promo di data.js
+    const promoInfoElem = document.querySelector(".promo-info");
+    if (promoInfoElem) {
+        if (data.promo) {
+            promoInfoElem.innerHTML = `🎉 Restoran ini sedang ada promo <b>${data.promo}</b> untuk beberapa menu! 🎉`;
+            promoInfoElem.style.display = "";
+        } else {
+            promoInfoElem.style.display = "none";
+        }
     }
 }
 

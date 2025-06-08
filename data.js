@@ -1,4 +1,5 @@
-export const reviewsData = {
+// Data ulasan awal
+const reviewsData = {
     "0": [
         { username: "Kevin Gaming", rating: 3, ulasan: "Menu variatif dan unik." },
         { username: "user54", rating: 5, ulasan: "Enak banget, bakal balik lagi!" },
@@ -64,16 +65,17 @@ export const reviewsData = {
     ]
 };
 
-export let reviews = localStorage.getItem("reviews");
-
-if (!reviews) {
+// Inisialisasi reviews di localStorage jika belum ada
+if (!localStorage.getItem("reviews")) {
     localStorage.setItem("reviews", JSON.stringify(reviewsData));
-    reviews = JSON.parse(localStorage.getItem("reviews"));
-} else {
-    reviews = JSON.parse(reviews);
 }
 
+// Selalu parse reviews dari localStorage
+export let reviews = JSON.parse(localStorage.getItem("reviews"));
+
+// Fungsi untuk menambah ulasan baru
 export function addReview(restoId, user, rating, ulasan, photo) {
+    if (!reviews[restoId]) reviews[restoId] = [];
     reviews[restoId].push({
         username: user,
         rating: rating,
@@ -83,6 +85,7 @@ export function addReview(restoId, user, rating, ulasan, photo) {
     localStorage.setItem("reviews", JSON.stringify(reviews));
 }
 
+// Data restoran
 const restoranData = [
     {
         id: 0,
@@ -91,7 +94,8 @@ const restoranData = [
         rating: 4.5,
         jenis_masakan: ["Chinese", "Kwetiau"],
         jam_buka: "10:00 - 22:00",
-        gambar: "kwetiau_79.jpg"
+        gambar: "kwetiau_79.jpg",
+        promo: "Diskon 50%"
     },
     {
         id: 1,
@@ -127,7 +131,8 @@ const restoranData = [
         rating: 4.6,
         jenis_masakan: ["Coffee", "Beverages"],
         jam_buka: "07:00 - 22:00",
-        gambar: "Fore.jpg"
+        gambar: "Fore.jpg",
+        promo: "Diskon 20%"
     },
     {
         id: 5,
@@ -154,7 +159,8 @@ const restoranData = [
         rating: 4.4,
         jenis_masakan: ["Western", "Fast Food"],
         jam_buka: "10:00 - 22:00",
-        gambar: "Texas Chicken.jpeg"
+        gambar: "Texas Chicken.jpeg",
+        promo: "Diskon 15%"
     },
     {
         id: 8,
@@ -169,6 +175,7 @@ const restoranData = [
 
 export let restoran = restoranData;
 
+// Bookmark functions
 export function getBookmarks() {
     return JSON.parse(localStorage.getItem('bookmarks')) || [];
 }
@@ -179,13 +186,13 @@ export function isBookmarked(restoId) {
 
 export function toggleBookmark(restoId) {
     let bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || [];
-    if (bookmarks.includes(restoId)) {
-      bookmarks = bookmarks.filter(bookmarkId => bookmarkId !== restoId);
-      localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
-      return false;
+    if (bookmarks.includes(restoId.toString())) {
+        bookmarks = bookmarks.filter(bookmarkId => bookmarkId !== restoId.toString());
+        localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+        return false;
     } else {
-      bookmarks.push(restoId);
-      localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
-      return true;
+        bookmarks.push(restoId.toString());
+        localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+        return true;
     }
 }
