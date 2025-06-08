@@ -25,7 +25,7 @@ if (bookmarkedRestos.length === 0) {
         <p>⭐ ${r.rating}</p>
         <div class="resto-actions">
           <button class="write-review-btn">
-            <a href="../reviews/index.html?id=${r.id}">Tulis Review</a>
+            <a href="../addreview/index.html?id=${r.id}">Tulis Review</a>
           </button>
           <button class="bookmark-btn" data-id="${r.id}"><img class="bookmark-btn-icon" src="../../Assets/Icons/${isBookmarked(r.id) ? "favorited" : "favorite"}.svg"></button>
         </div>

@@ -21,6 +21,7 @@ function renderRestos(data) {
     restoDiv.innerHTML = `
       <a href="../details/index.html?id=${r.id}">
         <img src="../../Assets/Restoran/${r.gambar}" alt="${r.nama}" />
+        <div class="mark">50% OFF</div>
       </a>
       <div class="resto-desc">
         <p><b>${r.nama}</b></p>
@@ -28,7 +29,7 @@ function renderRestos(data) {
         <p>⭐ ${r.rating}</p>
         <div class="resto-actions">
           <button class="write-review-btn">
-            <a href="../reviews/index.html?id=${r.id}">Tulis Review</a>
+            <a href="../addreview/index.html?id=${r.id}">Tulis Ulasan</a>
           </button>
           <button class="bookmark-btn" data-id="${r.id}"><img class="bookmark-btn-icon" src="../../Assets/Icons/${isBookmarked(r.id) ? "favorited" : "favorite"}.svg"></button>
         </div>
@@ -76,7 +77,7 @@ function filterRestos() {
   }
 
   if (filtered.length == 0) {
-    listContainer.innerHTML = `Tidak ada restoran dengan nama '${encodeURIComponent(searchVal)}'`;
+    listContainer.textContent = `Tidak ada restoran dengan nama '${searchVal}'`;
     return;
   }
 
@@ -110,5 +111,9 @@ document.addEventListener('click', function (e) {
     const id = btn.dataset.id;
 
     icon.src = `../../Assets/Icons/${toggleBookmark(id) ? "favorited" : "favorite"}.svg`;
+  }
+  if (e.target.classList.contains('write-review-btn')) {
+    const btn = e.target;
+    location.href = btn.querySelector("a").href;
   }
 });

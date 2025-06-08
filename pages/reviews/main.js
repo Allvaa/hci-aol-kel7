@@ -1,69 +1,43 @@
-// Tombol back sudah pakai inline onclick di HTML (history.back())
+import { reviews, restoran } from '../../data.js';
 
-import { addReview, restoran } from "../../data.js";
-
+// Ambil id restoran dari query string
 const params = new URLSearchParams(location.search);
 const idStr = params.get("id");
 
 // Cek data restoran
 const restoData = restoran.find(r => String(r.id) === idStr);
-const restoNameElem = document.querySelector('.resto-name');
+const restoNameElem = document.querySelector('.ulasan-resto-nama');
 if (restoData && restoNameElem) {
     restoNameElem.innerText = restoData.nama;
 }
 
-// Preview image upload
-const photoInput = document.getElementById('photo');
-const previewContainer = document.getElementById('preview-container');
+// Ambil data ulasan dari reviewsData
+const ulasan = (reviews && reviews[idStr]) ? reviews[idStr] : [];
 
-let photo;
+// Render ke HTML
+const ulasanList = document.querySelector('.ulasan-list');
+ulasanList.innerHTML = ""; // Kosongkan dulu
 
-photoInput.addEventListener('change', () => {
-  previewContainer.innerHTML = ''; // Bersihkan preview sebelumnya
-  const files = photoInput.files;
+if (ulasan.length === 0) {
+    ulasanList.innerHTML = "<p>Belum ada ulasan untuk restoran ini.</p>";
+} else {
+    ulasan.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'ulasan-card';
+        card.innerHTML = `
+            <div class="ulasan-header-row">
+                <span class="ulasan-user">${item.username}</span>
+                <span class="ulasan-rating">⭐ ${item.rating}</span>
+            </div>
+            <p class="ulasan-text">${item.ulasan}</p>
+            ${item.photo ? `<img src='${item.photo}' width="200">` : ""}
+        `;
+        ulasanList.appendChild(card);
+    });
+}
 
-  if (files.length === 0) return;
-
-  const file = files[0];
-  if (!file.type.startsWith('image/')) return;
-
-  const img = document.createElement('img');
-  img.classList.add('preview-image');
-  img.file = file;
-
-  previewContainer.appendChild(img);
-
-  const reader = new FileReader();
-  reader.onload = (function (aImg) {
-    return function (e) {
-      photo = aImg.src = e.target.result;
-    };
-  })(img);
-
-  reader.readAsDataURL(file);
-});
-
-// Contoh validasi sederhana sebelum submit (optional)
-const form = document.querySelector('.review-form');
-form.addEventListener('submit', (e) => {
-  if (!restoData) {
-    e.preventDefault();
-    return;
+document.addEventListener('click', function (e) {
+  if (e.target.classList.contains('write-review-btn') || e.target.tagName === "SPAN" && e.target.parentElement.classList.contains('write-review-btn')) {
+    location.href = `../addreview/index.html?${new URLSearchParams(location.search)}`;
   }
-  if (!form.checkValidity()) {
-    alert('Tolong lengkapi semua kolom wajib!');
-    e.preventDefault();
-    return;
-  }
-
-  const username = document.getElementById('name').value;
-  const email = document.getElementById('email').value;
-  const review = document.getElementById('review').value;
-  const rating = document.querySelector('input[name="rating"]:checked')?.value;
-
-  // Cetak ke console (atau bisa diolah sesuai kebutuhan)
-  addReview(idStr, username, rating, review, photo);
-  alert("Review ditambah");
-  history.back();
-  e.preventDefault();
 });

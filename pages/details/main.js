@@ -59,5 +59,5 @@ document.querySelector(".backbutton").addEventListener("mouseup", () => {
 // Tombol lihat ulasan
 document.querySelector(".lihat-ulasan-btn").addEventListener("mouseup", (e) => {
     e.preventDefault();
-    location.href = "../ulasan/index.html?id=" + params.get("id");
+    location.href = "../reviews/index.html?id=" + params.get("id");
 });
