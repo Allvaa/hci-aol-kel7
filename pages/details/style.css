@@ -134,6 +134,7 @@
 .harga-diskon {
     color: #e55a5a;
     font-weight: bold;
+    display: none;
 }
 
 

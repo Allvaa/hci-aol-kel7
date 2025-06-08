@@ -41,11 +41,23 @@ if (params.has("id")) {
 
     // Promo info tampil hanya jika ada promo di data.js
     const promoInfoElem = document.querySelector(".promo-info");
+
+    const normalPrices = document.querySelectorAll(".harga-normal");
+    const discountPrices = document.querySelectorAll(".harga-diskon");
     if (promoInfoElem) {
         if (data.promo) {
             promoInfoElem.innerHTML = `🎉 Restoran ini sedang ada promo <b>${data.promo}</b> untuk beberapa menu! 🎉`;
             promoInfoElem.style.display = "";
+
+            discountPrices.forEach(d => {
+              d.style.display = "initial";   
+            });
         } else {
+            normalPrices.forEach(d => {
+              d.className = "";
+              d.outerHTML = d.outerHTML.replaceAll("span", "b");   
+            });
+            
             promoInfoElem.style.display = "none";
         }
     }
